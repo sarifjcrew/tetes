@@ -1,4 +1,4 @@
-module github.com/sebarcode/tetes
+module github.com/sarifjcrew/tetes
 
 go 1.19
 

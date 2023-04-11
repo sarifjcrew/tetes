@@ -4,9 +4,9 @@ import (
 	"io/ioutil"
 	"testing"
 
+	"github.com/sarifjcrew/tetes"
+	"github.com/sarifjcrew/tetes/gtts"
 	"github.com/sebarcode/codekit"
-	"github.com/sebarcode/tetes"
-	"github.com/sebarcode/tetes/gtts"
 	"github.com/smartystreets/goconvey/convey"
 )
 

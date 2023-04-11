@@ -6,7 +6,7 @@ import (
 
 	texttospeech "cloud.google.com/go/texttospeech/apiv1"
 	"cloud.google.com/go/texttospeech/apiv1/texttospeechpb"
-	"github.com/sebarcode/tetes"
+	"github.com/sarifjcrew/tetes"
 )
 
 type GttsEngine struct {
