@@ -29,7 +29,7 @@ func TestSynthesize(t *testing.T) {
 		})
 		defer eng.Close()
 
-		err := eng.Synthesize("hai selamat pagi, nama saya sevo", tetes.SynthesizeText, &tetes.RequestConfig{
+		_, err := eng.Synthesize("hai selamat pagi, nama saya sevo", tetes.SynthesizeText, &tetes.RequestConfig{
 			Voice: &tetes.Voice{
 				Language: "id-ID",
 				Name:     "id-ID-Standard-C",

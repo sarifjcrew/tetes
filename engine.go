@@ -17,27 +17,27 @@ func NewEngine(provider Provider, writeFn func([]byte) error) *Engine {
 	return eng
 }
 
-func (eng *Engine) Synthesize(txt string, kind SynthesizeKind, config *RequestConfig) error {
+func (eng *Engine) Synthesize(txt string, kind SynthesizeKind, config *RequestConfig) ([]byte, error) {
 	var err error
-
+	var res []byte
 	if eng.provider == nil {
-		return errors.New("tts provider is nil")
+		return res, errors.New("tts provider is nil")
 	}
 
 	if eng.writeFn == nil {
-		return errors.New("write function is nil")
+		return res, errors.New("write function is nil")
 	}
 
-	bs := []byte{}
-	if bs, err = eng.provider.Synthesize(txt, string(kind), config); err != nil {
-		return fmt.Errorf("synthesize error: %s", err.Error())
+	// bs := []byte{}
+	if res, err = eng.provider.Synthesize(txt, string(kind), config); err != nil {
+		return res, fmt.Errorf("synthesize error: %s", err.Error())
 	}
 
-	if err = eng.writeFn(bs); err != nil {
-		return fmt.Errorf("write content error: %s", err.Error())
+	if err = eng.writeFn(res); err != nil {
+		return res, fmt.Errorf("write content error: %s", err.Error())
 	}
 
-	return nil
+	return res, nil
 }
 
 func (eng *Engine) Close() {
